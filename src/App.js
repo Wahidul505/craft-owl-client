@@ -1,8 +1,12 @@
+import { Route, Routes } from "react-router-dom";
+import Landing from "./Pages/Home/Landing";
 
 function App() {
   return (
-    <div data-theme="dark">
-      <button className="btn btn-primary"></button>
+    <div data-theme="light">
+      <Routes>
+        <Route path="/" element={<Landing />} />
+      </Routes>
     </div>
   );
 }

@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       {
-        mytheme: {
+        dark: {
 
           "primary": "#92B4EC",
 
