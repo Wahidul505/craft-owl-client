@@ -1,7 +1,8 @@
 
 function App() {
   return (
-    <div>
+    <div data-theme="dark">
+      <button className="btn btn-primary"></button>
     </div>
   );
 }
