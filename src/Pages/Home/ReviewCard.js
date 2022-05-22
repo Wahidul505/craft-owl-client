@@ -2,7 +2,7 @@ import React from 'react';
 
 const ReviewCard = () => {
     return (
-        <div class="card bg-accent shadow-xl">
+        <div class="card bg-base-100 shadow-xl">
             <div class="card-body">
                 <h2 class="card-title">Wahidul Alam</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat alias aperiam id aut quam voluptatem placeat quibusdam, pariatur laborum perferendis, nemo obcaecati, sapiente dolor provident! Laudantium libero eos est distinctio.</p>

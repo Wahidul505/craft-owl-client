@@ -7,11 +7,11 @@ module.exports = {
       {
         light: {
 
-          "primary": "#92B4EC",
+          "primary": "#006E7F",
 
-          "secondary": "#FFD24C",
+          "secondary": "#F24C4C",
 
-          "accent": "#97C4B8",
+          "accent": "#EC994B",
 
           "neutral": "#F3F4F6",
 

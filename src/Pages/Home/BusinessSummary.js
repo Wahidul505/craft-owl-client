@@ -13,19 +13,19 @@ const BusinessSummary = () => {
                 <div className='text-primary text-3xl flex flex-col items-center p-6 shadow-xl rounded-xl bg-base-200
                     '>
                     <GiPaintRoller className='text-8xl' />
-                    <p className='text-accent'>334+</p>
+                    <p className='text-accent font-semibold'>334+</p>
                     <p>Different Products</p>
                 </div>
                 <div className='text-primary text-3xl flex flex-col items-center p-6 shadow-xl rounded-xl bg-base-200
                     '>
                     <IoIosPeople className='text-8xl' />
-                    <p className='text-accent'>780+</p>
+                    <p className='text-accent font-semibold'>780+</p>
                     <p>Satisfied Buyer</p>
                 </div>
                 <div className='text-primary text-3xl flex flex-col items-center p-6 shadow-xl rounded-xl bg-base-200
                     '>
                     <MdReviews className='text-8xl' />
-                    <p className='text-accent'>500+</p>
+                    <p className='text-accent font-semibold'>500+</p>
                     <p>Good Review</p>
                 </div>
             </div>
