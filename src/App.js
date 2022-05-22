@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import Login from "./Pages/Auth/Login";
+import Register from "./Pages/Auth/Register";
 import Landing from "./Pages/Home/Landing";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
@@ -11,6 +13,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/purchase" element={<Purchase />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
     </div>
