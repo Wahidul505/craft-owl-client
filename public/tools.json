@@ -1,0 +1,50 @@
+[
+    {
+        "name": "36 color acrylic paint",
+        "image": "https://i.ibb.co/VNgS7mp/tubes-acrylic-paint-different-co.jpg",
+        "description": "36 piece acrylic color paint by Craft Owl",
+        "minimumOrderQuantity": 300,
+        "availableQuantity": 20000,
+        "price": 15
+    },
+    {
+        "name": "50 piece Brush set",
+        "image": "https://i.ibb.co/y5JtG5c/brush.jpg",
+        "description": "Set of 50 piece soft and smooth paint brush by Craft Owl",
+        "minimumOrderQuantity": 500,
+        "availableQuantity": 25000,
+        "price": 11
+    },
+    {
+        "name": "Vintage Brown display Easel by Craft Owl",
+        "image": "https://i.ibb.co/7gDmGB2/10160-1-1.jpg",
+        "description": "Well furnished vintage brown display easel by craft owl",
+        "minimumOrderQuantity": 100,
+        "availableQuantity": 6000,
+        "price": 34
+    },
+    {
+        "name": "Metal Palette Knife set",
+        "image": "https://i.ibb.co/mhJvGhT/metal-palette-knife-1.jpg",
+        "description": "5 piece of Metal palette knife set by Craft Owl",
+        "minimumOrderQuantity": 400,
+        "availableQuantity": 22000,
+        "price": 14
+    },
+    {
+        "name": "Acrylic paint marker set of 32 piece",
+        "image": "https://i.ibb.co/cCgHGfy/ryan-ancill-q-R3fka-N9w-EA-unsplash-1.jpg",
+        "description": "Craft Owl-3m 16 color fine tip paint marker set",
+        "minimumOrderQuantity": 800,
+        "availableQuantity": 32000,
+        "price": 54
+    },
+    {
+        "name": "Fundamentals colored pencils",
+        "image": "https://i.ibb.co/8zy5N5D/taru-huhkio-JQ3-JSM-q-Ig-unsplash-1.jpg",
+        "description": "A set of 24 piece colored pencil by Craft Owl",
+        "minimumOrderQuantity": 1000,
+        "availableQuantity": 40000,
+        "price": 6
+    }
+]

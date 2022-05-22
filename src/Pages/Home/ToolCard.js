@@ -1,0 +1,24 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+const ToolCard = ({ tool }) => {
+    const { name, image, description, minimumOrderQuantity, availableQuantity, price } = tool;
+    const navigate = useNavigate();
+    return (
+        <div class="card lg:card-side bg-base-100 shadow-xl">
+            <figure><img className='h-80 w-52' src={image} alt="Album" /></figure>
+            <div class="card-body">
+                <h2 class="card-title text-2xl">{name}</h2>
+                <p className='text-gray-600' title={description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
+                <p className='text-2xl'>Tk <span className='text-secondary'>{price}</span></p>
+                <p>Minimum Order Quantity: <span className="text-secondary">{minimumOrderQuantity}</span></p>
+                <p>Available in Stock: <span className="text-secondary">{availableQuantity}</span></p>
+                <div class="card-actions justify-end">
+                    <button onClick={()=> navigate('/purchase')} class="btn btn-primary">Purchase</button>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ToolCard;
