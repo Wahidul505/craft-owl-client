@@ -2,6 +2,7 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
+import RequireAuth from "./Pages/Auth/RequireAuth";
 import Landing from "./Pages/Home/Landing";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
@@ -13,9 +14,12 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/purchase" element={<Purchase />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        {/* Require Auth routes  */}
+        <Route element={<RequireAuth />}>
+          <Route path="purchase" element={<Purchase />} />
+        </Route>
       </Routes>
       <Footer />
       <Toaster

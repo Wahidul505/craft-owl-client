@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
@@ -8,6 +8,10 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 import GoogleSignIn from './GoogleSignIn';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [
         signInWithEmailAndPassword,
@@ -18,13 +22,14 @@ const Login = () => {
 
     useEffect(() => {
         if (user) {
+            toast.success('Logged In', { id: 'loginSuccess' });
             reset();
-            console.log(user);
+            navigate(from, { replace: true });
         }
         if (error) {
             toast.error(error.code.slice(5, error.code.length), { id: 'loginError' });
         }
-    }, [user, reset, error]);
+    }, [user, reset, error, navigate, from]);
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
