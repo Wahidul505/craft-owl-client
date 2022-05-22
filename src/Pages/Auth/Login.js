@@ -6,6 +6,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 import GoogleSignIn from './GoogleSignIn';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -19,9 +20,10 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [token] = useToken(user);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
             toast.success('Logged In', { id: 'loginSuccess' });
             reset();
             navigate(from, { replace: true });
@@ -29,7 +31,7 @@ const Login = () => {
         if (error) {
             toast.error(error.code.slice(5, error.code.length), { id: 'loginError' });
         }
-    }, [user, reset, error, navigate, from]);
+    }, [token, reset, error, navigate, from]);
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);

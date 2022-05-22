@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 import GoogleSignIn from './GoogleSignIn';
+import useToken from '../../hooks/useToken';
 
 const Register = () => {
+    const navigate = useNavigate();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [
         createUserWithEmailAndPassword,
@@ -16,11 +18,13 @@ const Register = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [token] = useToken(user);
 
     useEffect(() => {
-        if (user) {
+        if (token) {
+            toast.success('Account Created', { id: 'registerSuccess' });
             reset();
-            console.log(user);
+            navigate('/');
         }
         if (error) {
             toast.error(error.code.slice(5, error.code.length), { id: 'registerError' });
@@ -28,7 +32,7 @@ const Register = () => {
         if (updateError) {
             toast.error(updateError.code.slice(5, error.code.length), { id: 'profileUpdateError' });
         }
-    }, [user, reset, error, updateError]);
+    }, [token, reset, error, updateError, navigate]);
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
@@ -36,7 +40,8 @@ const Register = () => {
     };
     if (loading || updating) {
         return <LoadingSpinner />
-    }
+    };
+
     return (
         <div className='mt-24 w-5/6 md:w-1/2 lg:w-2/5 mx-auto card flex-shrink-0 shadow-2xl bg-base-100'>
             <div class="card-body">
