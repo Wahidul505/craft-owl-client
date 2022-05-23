@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import ToolCard from './ToolCard';
 
 const Tools = () => {
-    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('tools.json')
+    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('http://localhost:5000/tool')
         .then(res => res.json()));
     if (isLoading) {
         return <h1>Loading...</h1>

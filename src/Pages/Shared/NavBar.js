@@ -15,13 +15,13 @@ const NavBar = () => {
         <li><NavLink to='/blogs'>Blogs</NavLink></li>,
         <div>
             {
-                user ? <>
+                user ? <div className='flex flex-col lg:flex-row gap-3 lg:gap-0 lg:items-center'>
                     <span className='bg-secondary bg-opacity-50 mr-3 p-1 text-white rounded-lg'>{user.displayName}</span>
                     <button
                         onClick={handleSignOut}
                         className='border-2 border-primary rounded-lg h-10'
                     >LogOut</button>
-                </>
+                </div>
                     : <li><NavLink to='/login' className='border-2 border-primary rounded-lg h-10'>Login</NavLink></li>
             }
         </div>

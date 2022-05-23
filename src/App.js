@@ -18,7 +18,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         {/* Require Auth routes  */}
         <Route element={<RequireAuth />}>
-          <Route path="purchase" element={<Purchase />} />
+          <Route path="purchase/:id" element={<Purchase />} />
         </Route>
       </Routes>
       <Footer />
