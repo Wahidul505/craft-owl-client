@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 import { signOut } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Purchase = () => {
     const navigate = useNavigate();
@@ -52,7 +53,8 @@ const Purchase = () => {
             totalPrice: parseFloat(price * quantity),
             quantity: quantity,
             phone: data.phone,
-            address: data.address
+            address: data.address,
+            status: "pending"
         }
         fetch('http://localhost:5000/order', {
             headers: {
@@ -69,7 +71,12 @@ const Purchase = () => {
             else {
                 return res.json();
             }
-        }).then(result => console.log(result));
+        }).then(result => {
+            if (result.acknowledged) {
+                navigate('/dashboard/my-orders');
+                toast.success('To Confirm Your Order Complete the Payment');
+            }
+        });
     };
 
     // handler for skipping quantities 
