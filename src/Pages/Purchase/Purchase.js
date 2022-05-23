@@ -4,11 +4,13 @@ import { FaMinus } from 'react-icons/fa';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../Shared/LoadingSpinner';
+import { signOut } from 'firebase/auth';
 
 const Purchase = () => {
+    const navigate = useNavigate();
     const [quantity, setQuantity] = useState(0);
     const [displayError, setDisplayError] = useState('');
     const [skipSteps, setSkipSteps] = useState(1);
@@ -18,16 +20,18 @@ const Purchase = () => {
     const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`http://localhost:5000/tool/${id}`)
         .then(res => res.json()));
 
+    // setting initial value for quantity state 
     useEffect(() => {
         setQuantity(parseInt(tool?.minimumOrderQuantity));
     }, [tool]);
 
+    // handling errors based on quantity range 
     useEffect(() => {
         if (quantity < tool?.minimumOrderQuantity) {
             setDisplayError('You have to Order more than Minimum Order Quantity');
         }
         else if (quantity > tool?.availableQuantity) {
-            setDisplayError('You have to Order below Available Stock');
+            setDisplayError('You have to Order below Available Quantity');
         }
         else {
             setDisplayError('');
@@ -39,20 +43,46 @@ const Purchase = () => {
     };
     const { name, image, description, minimumOrderQuantity, availableQuantity, price } = tool;
 
+    // handler for submit the order 
     const onSubmit = data => {
-        const person = user?.displayName;
-        const email = user?.email;
-        console.log(person, email, data);
+        const orderInfo = {
+            person: user?.displayName,
+            email: user?.email,
+            toolName: name,
+            totalPrice: parseFloat(price * quantity),
+            quantity: quantity,
+            phone: data.phone,
+            address: data.address
+        }
+        fetch('http://localhost:5000/order', {
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            },
+            method: 'POST',
+            body: JSON.stringify(orderInfo)
+        }).then(res => {
+            if (res.status === 401 || res.status === 403) {
+                navigate('/');
+                signOut(auth);
+            }
+            else {
+                return res.json();
+            }
+        }).then(result => console.log(result));
     };
 
+    // handler for skipping quantities 
     const handleSkipQuantitySteps = e => {
         setSkipSteps(parseInt(e.target.value));
     }
 
+    // handler for increasing quantities
     const handleIncreaseQuantity = () => {
         setQuantity((previousQuantity) => previousQuantity + skipSteps);
     };
 
+    // handler for decreasing quantities 
     const handleDecreaseQuantity = () => {
         setQuantity((previousQuantity) => previousQuantity - skipSteps);
     };
@@ -68,10 +98,10 @@ const Purchase = () => {
                     <p className='text-gray-600' title={description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
                     <p className='text-2xl'>Tk <span className='text-secondary font-semibold'>{price}</span></p>
                     <p>Minimum Order Quantity: <span className="text-secondary font-semibold">{minimumOrderQuantity}</span></p>
-                    <p>Available in Stock: <span className="text-secondary font-semibold">{availableQuantity}</span></p>
-                    {/* Quantity Handler  */}
+                    <p>Available Quantity: <span className="text-secondary font-semibold">{availableQuantity}</span></p>
+                    {/* Quantity managing section  */}
                     <div>
-                        <span className='mr-4'>Quantity:</span>
+                        <span className='mr-2 text-xl'>Quantity:</span>
                         <button
                             onClick={handleDecreaseQuantity}
                             disabled={quantity <= minimumOrderQuantity}
@@ -94,6 +124,7 @@ const Purchase = () => {
                             <option value='50'>50</option>
                             <option value='100'>100</option>
                             <option value='200'>200</option>
+                            <option value='500'>500</option>
                         </select>
                     </div>
                     <p className='text-error h-10'>
@@ -104,22 +135,24 @@ const Purchase = () => {
             {/* form starts from here  */}
             <div class="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
+                    {/* Name  */}
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Name</span>
+                            <span class="label-text text-lg">Name</span>
                         </label>
-                        <input type="text" value={user?.displayName || ''} disabled class="input input-bordered" />
+                        <input type="text" value={user?.displayName || ''} disabled class="input input-bordered text-lg" />
                     </div>
+                    {/* Email  */}
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text">Email</span>
+                            <span class="label-text text-lg">Email</span>
                         </label>
-                        <input type="text" value={user?.email || ''} disabled class="input input-bordered" />
+                        <input type="text" value={user?.email || ''} disabled class="input input-bordered text-lg" />
                     </div>
-                    {/* field for phone number  */}
+                    {/* phone number  */}
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text text-xl">Phone</span>
+                            <span class="label-text text-lg">Phone</span>
                         </label>
                         <input
                             {...register("phone", {
@@ -132,16 +165,16 @@ const Purchase = () => {
 
                         {errors.phone?.type === 'required' && <small className='text-red-500'>{errors.phone.message}</small>}
                     </div>
-                    {/* field for address  */}
+                    {/* address  */}
                     <div class="form-control">
                         <label class="label">
-                            <span class="label-text text-xl">Address</span>
+                            <span class="label-text text-lg">Address</span>
                         </label>
                         <input
                             {...register("address", {
                                 required: {
                                     value: true,
-                                    message: "Phone Number is Required"
+                                    message: "Address is Required"
                                 }
                             })}
                             type="text" placeholder="address" name='address' class="input input-bordered text-lg" />
@@ -150,7 +183,7 @@ const Purchase = () => {
                     </div>
                     {/* submit button  */}
                     <div class="form-control mt-6">
-                        <button type='submit' class="btn btn-primary" disabled={displayError}>Buy Now</button>
+                        <button type='submit' class="btn btn-primary" disabled={displayError}>Complete Purchase</button>
                     </div>
                 </form>
             </div>

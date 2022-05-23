@@ -12,7 +12,7 @@ const ToolCard = ({ tool }) => {
                 <p className='text-gray-600' title={description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
                 <p className='text-2xl'>Tk <span className='text-secondary font-semibold'>{price}</span></p>
                 <p>Minimum Order Quantity: <span className="text-secondary font-semibold">{minimumOrderQuantity}</span></p>
-                <p>Available in Stock: <span className="text-secondary font-semibold">{availableQuantity}</span></p>
+                <p>Available Quantity: <span className="text-secondary font-semibold">{availableQuantity}</span></p>
                 <div class="card-actions justify-end">
                     <button onClick={() => navigate(`/purchase/${_id}`)} class="btn btn-primary">Purchase</button>
                 </div>

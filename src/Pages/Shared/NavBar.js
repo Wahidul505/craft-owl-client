@@ -11,8 +11,8 @@ const NavBar = () => {
     }
     const menuItems = [
         <li><NavLink to='/'>Home</NavLink></li>,
-        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>,
         <li><NavLink to='/blogs'>Blogs</NavLink></li>,
+        <li>{user && <NavLink to='/dashboard'>Dashboard</NavLink>}</li>,
         <div>
             {
                 user ? <div className='flex flex-col lg:flex-row gap-3 lg:gap-0 lg:items-center'>
