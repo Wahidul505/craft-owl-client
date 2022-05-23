@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const NavBar = () => {
@@ -10,17 +10,21 @@ const NavBar = () => {
         signOut(auth);
     }
     const menuItems = [
-        <li><Link to='/'>Home</Link></li>,
-        <li><Link to='/dashboard'>Dashboard</Link></li>,
-        <li><Link to='/blogs'>Blogs</Link></li>,
-        <li>
+        <li><NavLink to='/'>Home</NavLink></li>,
+        <li><NavLink to='/dashboard'>Dashboard</NavLink></li>,
+        <li><NavLink to='/blogs'>Blogs</NavLink></li>,
+        <div>
             {
-                user ? <button
-                    onClick={handleSignOut}
-                    className='border-2 border-primary rounded-lg h-10'>LogOut</button>
-                    : <Link to='/login' className='border-2 border-primary rounded-lg h-10'>Login</Link>
+                user ? <>
+                    <span className='bg-secondary bg-opacity-50 mr-3 p-1 text-white rounded-lg'>{user.displayName}</span>
+                    <button
+                        onClick={handleSignOut}
+                        className='border-2 border-primary rounded-lg h-10'
+                    >LogOut</button>
+                </>
+                    : <li><NavLink to='/login' className='border-2 border-primary rounded-lg h-10'>Login</NavLink></li>
             }
-        </li>
+        </div>
     ]
     return (
         <div class="navbar bg-base-100">
