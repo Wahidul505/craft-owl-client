@@ -4,7 +4,7 @@ const MyOrderRow = ({ order, index, setCancelingOrder }) => {
     const { toolName, quantity, totalPrice, status } = order;
     return (
         <tr>
-            <th>{index + 1}</th>
+            <td>{index + 1}</td>
             <td className='text-primary'>{toolName}</td>
             <td>{quantity}</td>
             <td>$ <span className='text-primary'>{totalPrice}</span></td>

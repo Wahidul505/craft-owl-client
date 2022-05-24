@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
-const EditProfile = ({ user, userInfo, refetch }) => {
+const EditProfile = ({ user, userInfo, refetch, setShowEdit }) => {
     const navigate = useNavigate();
     const handleUpdateUser = e => {
         e.preventDefault();
@@ -32,6 +32,7 @@ const EditProfile = ({ user, userInfo, refetch }) => {
         }).then(data => {
             toast.success('Your Information has been Received', { id: 'updatedUserInfo' });
             refetch();
+            setShowEdit(false);
         });
     }
     return (

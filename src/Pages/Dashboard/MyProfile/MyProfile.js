@@ -58,6 +58,7 @@ const MyProfile = () => {
                 user={user}
                 refetch={refetch}
                 userInfo={userInfo}
+                setShowEdit={setShowEdit}
             />}
         </div>
     );

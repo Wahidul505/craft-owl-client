@@ -1,13 +1,22 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Navigate, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import useAdmin from '../../hooks/useAdmin';
+import LoadingSpinner from '../Shared/LoadingSpinner';
 
 const RequireAdmin = () => {
-    return (
-        <div>
-            <h1>Hello from Require Admin</h1>
-            <Outlet />
-        </div>
-    );
+    const [user, isLoading] = useAuthState(auth);
+    const [admin, adminLoading] = useAdmin(user);
+    if (isLoading || adminLoading) {
+        return <LoadingSpinner />
+    }
+    if (admin) {
+        return <Outlet />
+    }
+    else {
+        return <Navigate to='/' />;
+    }
 };
 
 export default RequireAdmin;

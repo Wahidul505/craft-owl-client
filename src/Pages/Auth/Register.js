@@ -25,6 +25,7 @@ const Register = () => {
             toast.success('Account Created', { id: 'registerSuccess' });
             reset();
             navigate('/');
+            window.location.reload();
         }
         else if (error) {
             toast.error(error?.code?.slice(5, error.code.length), { id: 'registerError' });
@@ -93,8 +94,8 @@ const Register = () => {
                                     message: 'Password is required'
                                 },
                                 pattern: {
-                                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                    message: 'Minimum eight characters, at least one letter, one number and no Special Character'
+                                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/,
+                                    message: 'Minimum six characters, at least one letter, one number and no Special Character'
                                 }
                             })}
                             type="password" placeholder="password" name='password' class="input input-bordered text-lg" />

@@ -17,7 +17,7 @@ const Purchase = () => {
     const [skipSteps, setSkipSteps] = useState(1);
     const { id } = useParams();
     const [user] = useAuthState(auth);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`http://localhost:5000/tool/${id}`)
         .then(res => res.json()));
 
@@ -74,7 +74,7 @@ const Purchase = () => {
         }).then(result => {
             if (result.acknowledged) {
                 navigate('/dashboard/my-orders');
-                toast.success('To Confirm Your Order Complete the Payment');
+                toast.success('To Confirm Your Order Complete the Payment', {id: 'purchaseSuccess'});
             }
         });
     };
