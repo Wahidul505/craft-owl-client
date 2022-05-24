@@ -1,18 +1,16 @@
 import React from 'react';
 
-const ReviewCard = () => {
+const ReviewCard = ({ review }) => {
+    const { name, description, rating } = review;
     return (
-        <div class="card bg-base-100 shadow-xl">
+        <div class="card bg-base-100 shadow-xl carousel-item mb-4">
             <div class="card-body">
-                <h2 class="card-title">Wahidul Alam</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat alias aperiam id aut quam voluptatem placeat quibusdam, pariatur laborum perferendis, nemo obcaecati, sapiente dolor provident! Laudantium libero eos est distinctio.</p>
+                <h2 class="card-title">{name}</h2>
+                <p>{description}</p>
                 <div class=" justify-end">
                     <div class="rating rating-sm">
-                        <input type="radio" name="rating-7" class="mask mask-star-2 bg-secondary" disabled />
-                        <input type="radio" name="rating-7" class="mask mask-star-2 bg-secondary" disabled />
-                        <input type="radio" name="rating-7" class="mask mask-star-2 bg-secondary" disabled />
-                        <input type="radio" name="rating-7" class="mask mask-star-2 bg-secondary" disabled />
-                        <input type="radio" name="rating-7" class="mask mask-star-2 bg-secondary" disabled />
+                        {[...Array(rating).keys()].map(rating => <span class="mask mask-star-2 bg-secondary h-4 w-4">
+                        </span>)}
                     </div>
                 </div>
             </div>

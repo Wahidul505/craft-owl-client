@@ -27,7 +27,7 @@ const NavBar = () => {
         </div>
     ]
     return (
-        <div class="navbar bg-base-100">
+        <div class="navbar bg-base-100 fixed top-0 right-0 left-0 z-10">
             <div class="navbar-start">
                 <Link to='/' className='btn btn-ghost normal-case text-xl'>Craft Owl</Link>
             </div>

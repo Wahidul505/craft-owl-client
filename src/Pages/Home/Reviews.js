@@ -1,14 +1,27 @@
 import React from 'react';
+import { useQuery } from 'react-query';
+import LoadingSpinner from '../Shared/LoadingSpinner';
 import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('http://localhost:5000/review')
+        .then(res => res.json()));
+
+    if (isLoading) {
+        return <LoadingSpinner />
+    };
+
     return (
         <div>
-            <h1 className='divider mb-10 text-3xl text-primary'>Buyer Reviews</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                <ReviewCard />
-                <ReviewCard />
-                <ReviewCard />
+            <div className='divider text-xl text-primary'>Scroll Down</div>
+            <div className='divider mb-8 text-primary text-3xl'>To See Reviews</div>
+            <div class="h-96 carousel carousel-vertical rounded-box p-6">
+                {
+                    reviews.map(review => <ReviewCard
+                        key={review._id}
+                        review={review}
+                    />)
+                }
             </div>
         </div>
     );
