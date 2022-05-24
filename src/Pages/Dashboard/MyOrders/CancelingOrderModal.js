@@ -25,10 +25,11 @@ const CancelingOrderModal = ({ cancelingOrder, setCancelingOrder, refetch }) => 
                 return res.json();
             }
         }).then(data => {
-            console.log(data)
-            refetch();
-            setCancelingOrder(null);
-            toast.success("Order Canceled", { icon: '🗑', id: 'canceledOrder' });
+            if (data.acknowledged) {
+                refetch();
+                setCancelingOrder(null);
+                toast.success("Order Canceled", { icon: '🗑', id: 'canceledOrder' });
+            }
         });
     };
 

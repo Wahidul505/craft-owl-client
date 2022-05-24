@@ -97,7 +97,7 @@ const Purchase = () => {
 
 
     return (
-        <div className='mt-24 grid grid-cols-1 lg:grid-cols-3'>
+        <div className='mt-48 grid grid-cols-1 lg:grid-cols-3'>
             <div class="card md:card-side bg-base-100 shadow-xl lg:col-span-2">
                 <figure><img className='h-48 rounded-lg md:rounded-l-lg md:rounded-r-none md:h-full w-60' src={image} alt="Album" /></figure>
                 <div class="card-body">

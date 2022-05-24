@@ -43,7 +43,7 @@ const Register = () => {
     };
 
     return (
-        <div className='mt-24 w-5/6 md:w-1/2 lg:w-2/5 mx-auto card flex-shrink-0 shadow-2xl bg-base-100'>
+        <div className='mt-48 w-5/6 md:w-1/2 lg:w-2/5 mx-auto card flex-shrink-0 shadow-2xl bg-base-100'>
             <div class="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='text-center text-2xl text-primary mb-6'>Create An Account</h1>
