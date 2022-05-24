@@ -16,7 +16,7 @@ const NavBar = () => {
         <div>
             {
                 user ? <div className='flex flex-col lg:flex-row gap-3 lg:gap-0 lg:items-center'>
-                    <span className='bg-secondary bg-opacity-50 mr-3 p-1 text-white rounded-lg w-full'>{user.displayName}</span>
+                    <span className='bg-secondary bg-opacity-50 mr-3 p-1 text-white rounded-lg w-full'>{user?.displayName}</span>
                     <button
                         onClick={handleSignOut}
                         className='border-2 border-primary rounded-lg h-10'

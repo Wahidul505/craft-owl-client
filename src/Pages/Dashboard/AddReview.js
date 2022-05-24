@@ -11,7 +11,7 @@ const AddReview = () => {
     const name = user?.displayName;
     const email = user?.email;
     const navigate = useNavigate();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data, e) => {
         e.preventDefault();
         const description = data.description;

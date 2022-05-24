@@ -26,11 +26,11 @@ const Register = () => {
             reset();
             navigate('/');
         }
-        if (error) {
-            toast.error(error.code.slice(5, error.code.length), { id: 'registerError' });
+        else if (error) {
+            toast.error(error?.code?.slice(5, error.code.length), { id: 'registerError' });
         }
-        if (updateError) {
-            toast.error(updateError.code.slice(5, error.code.length), { id: 'profileUpdateError' });
+        else if (updateError) {
+            toast.error(updateError?.code?.slice(5, error.code.length), { id: 'profileUpdateError' });
         }
     }, [token, reset, error, updateError, navigate]);
 

@@ -29,7 +29,7 @@ const Login = () => {
             navigate(from, { replace: true });
         }
         if (error) {
-            toast.error(error.code.slice(5, error.code.length), { id: 'loginError' });
+            toast.error(error?.code?.slice(5, error.code.length), { id: 'loginError' });
         }
     }, [token, reset, error, navigate, from]);
 
