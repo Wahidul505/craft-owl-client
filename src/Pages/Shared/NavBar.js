@@ -15,12 +15,14 @@ const NavBar = () => {
         <>{user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}</>,
         <div>
             {
-                user ? <div className='flex flex-col lg:flex-row gap-3 lg:gap-0 lg:items-center'>
-                    <span className='bg-secondary bg-opacity-50 mr-3 p-1 text-white rounded-lg w-full'>{user?.displayName}</span>
-                    <button
-                        onClick={handleSignOut}
-                        className='border-2 border-primary rounded-lg h-10'
-                    >LogOut</button>
+                user ? <div class="dropdown dropdown-hover dropdown-end">
+                    <label tabindex="0" class="btn m-1 rounded-full bg-accent text-white">{user?.displayName[0]}</label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <Link to='/dashboard' className='btn btn-sm mb-3'>My Profile</Link>
+                        <button
+                            onClick={handleSignOut}
+                            className='btn btn-sm'>Log Out</button>
+                    </ul>
                 </div>
                     : <li><NavLink to='/login' className='border-2 border-primary rounded-lg h-10'>Login</NavLink></li>
             }

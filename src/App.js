@@ -17,6 +17,7 @@ import Landing from "./Pages/Home/Landing";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
+import NotFound from "./Pages/Shared/NotFound";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route element={<RequireAuth />}>
           <Route path="/purchase/:id" element={<Purchase />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <Toaster
