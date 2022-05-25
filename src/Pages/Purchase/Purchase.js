@@ -103,7 +103,7 @@ const Purchase = () => {
                 <div class="card-body">
                     <h2 class="card-title text-3xl">{name}</h2>
                     <p className='text-gray-600' title={description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
-                    <p className='text-2xl'>Tk <span className='text-secondary font-semibold'>{price}</span></p>
+                    <p className='text-2xl'>$ <span className='text-secondary font-semibold'>{price}</span></p>
                     <p>Minimum Order Quantity: <span className="text-secondary font-semibold">{minimumOrderQuantity}</span></p>
                     <p>Available Quantity: <span className="text-secondary font-semibold">{availableQuantity}</span></p>
                     {/* Quantity managing section  */}

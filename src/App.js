@@ -14,7 +14,7 @@ import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers";
 import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import Landing from "./Pages/Home/Landing";
-import Payment from "./Pages/Payment/Payment";
+import Payment from "./Pages/Purchase/Payment";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
