@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MyOrderRow = ({ order, index, setCancelingOrder }) => {
-    const { toolName, quantity, totalPrice, status } = order;
+    const { _id, toolName, quantity, totalPrice, status } = order;
+    const navigate = useNavigate();
     return (
         <tr>
             <td>{index + 1}</td>
@@ -9,9 +11,11 @@ const MyOrderRow = ({ order, index, setCancelingOrder }) => {
             <td>{quantity}</td>
             <td>$ <span className='text-primary'>{totalPrice}</span></td>
             <td>
-                {status === 'pending' ?
+                {status === 'unpaid' ?
                     <>
-                        <button className='btn btn-sm btn-accent mr-2'>Pay</button>
+                        <button
+                            onClick={() => navigate(`/payment/${_id}`)}
+                            className='btn btn-sm btn-accent mr-2'>Pay</button>
                         <label
                             onClick={() => setCancelingOrder(order)}
                             for="canceling-order-modal" class="btn btn-sm btn-error lowercase">Cancel</label>

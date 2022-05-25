@@ -54,7 +54,7 @@ const Purchase = () => {
             quantity: quantity,
             phone: data.phone,
             address: data.address,
-            status: "pending"
+            status: "unpaid"
         }
         fetch('http://localhost:5000/order', {
             headers: {

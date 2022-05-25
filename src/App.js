@@ -14,6 +14,7 @@ import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers";
 import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import Landing from "./Pages/Home/Landing";
+import Payment from "./Pages/Payment/Payment";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
 import NavBar from "./Pages/Shared/NavBar";
@@ -46,6 +47,7 @@ function App() {
 
         <Route element={<RequireAuth />}>
           <Route path="/purchase/:id" element={<Purchase />} />
+          <Route path="/payment/:id" element={<Payment />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

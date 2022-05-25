@@ -5,7 +5,7 @@ const ToolCard = ({ tool }) => {
     const { _id, name, image, description, minimumOrderQuantity, availableQuantity, price } = tool;
     const navigate = useNavigate();
     return (
-        <div class="card lg:card-side bg-base-100 shadow-xl">
+        <div class="card lg:card-side bg-base-100 shadow-xl mb-10">
             <figure><img className='h-48 rounded-lg lg:rounded-l-lg lg:rounded-r-none lg:h-full w-52' src={image} alt="Album" /></figure>
             <div class="card-body">
                 <h2 class="card-title text-2xl">{name}</h2>

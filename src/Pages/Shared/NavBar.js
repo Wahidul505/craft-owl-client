@@ -15,9 +15,10 @@ const NavBar = () => {
         <>{user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>}</>,
         <div>
             {
-                user ? <div class="dropdown dropdown-hover dropdown-end">
-                    <label tabindex="0" class="btn m-1 rounded-full bg-accent text-white">{user?.displayName[0]}</label>
-                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                user ? <div class="dropdown dropdown-hover dropdown-content lg:dropdown-end">
+                    <label tabindex="0" class="btn m-1 hidden lg:flex rounded-full bg-accent text-white">{user?.displayName[0]}</label>
+                    <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 mt-4 lg:mt-0">
+                        <div class="badge badge-primary badge-outline lg:hidden text-xl text-center mb-3 w-full py-3">{user?.displayName}</div>
                         <Link to='/dashboard' className='btn btn-sm mb-3'>My Profile</Link>
                         <button
                             onClick={handleSignOut}
