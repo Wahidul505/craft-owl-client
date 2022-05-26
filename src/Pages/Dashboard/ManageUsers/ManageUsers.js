@@ -29,7 +29,7 @@ const ManageUsers = () => {
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <th></th>
+                        <td></td>
                         <th>Email</th>
                         <th>Name</th>
                         <th></th>

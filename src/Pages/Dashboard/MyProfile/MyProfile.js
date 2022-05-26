@@ -28,13 +28,16 @@ const MyProfile = () => {
     if (isLoading) {
         return <LoadingSpinner />
     };
-    const { education, location, phone, linkedin, updateStatus } = userInfo;
+    const { education, location, phone, linkedin, updateStatus, role } = userInfo;
 
     return (
         <div className='flex flex-col gap-8'>
             <div class="card bg-primary text-primary-content">
                 <div class="card-body">
-                    <h2 class="card-title text-3xl">{user?.displayName || ''}</h2>
+                    <div class="avatar indicator">
+                        {role === 'admin' && <span class="indicator-item badge badge-accent">Admin</span>}
+                        <h2 class="card-title text-3xl mt-2 mr-8">{user?.displayName || ''}</h2>
+                    </div>
                     <p>{user?.email || ''}</p>
                     {
                         updateStatus &&
@@ -49,7 +52,7 @@ const MyProfile = () => {
                         {
                             user && <button
                                 onClick={() => setShowEdit(!showEdit)}
-                                class="btn">{showEdit? "Close": "Edit"}</button>
+                                class="btn">{showEdit ? "Close" : "Edit"}</button>
                         }
                     </div>
                 </div>
