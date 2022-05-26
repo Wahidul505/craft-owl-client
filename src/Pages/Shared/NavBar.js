@@ -32,7 +32,9 @@ const NavBar = () => {
     return (
         <div class="navbar bg-base-100 fixed top-0 right-0 left-0 z-10">
             <div class="navbar-start">
-                <Link to='/' className='btn btn-ghost normal-case text-xl'>Craft Owl</Link>
+                <Link to='/' className='btn btn-ghost normal-case text-xl'>
+                    <img className='w-36' src="https://i.ibb.co/XsPqhK3/logo-2.png" alt="" />
+                </Link>
             </div>
             <div class="navbar-end">
                 <ul class="menu menu-horizontal p-0 hidden lg:flex gap-3 items-center">

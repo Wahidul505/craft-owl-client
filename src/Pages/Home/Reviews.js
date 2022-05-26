@@ -15,7 +15,7 @@ const Reviews = () => {
         <div>
             <div className='divider text-xl text-primary'>Scroll Down</div>
             <div className='divider mb-8 text-primary text-3xl'>To See Reviews</div>
-            <div class="h-96 carousel carousel-vertical rounded-box p-6">
+            <div class="h-[500px] carousel carousel-vertical rounded-box p-6 bg-base-200">
                 {
                     reviews.map(review => <ReviewCard
                         key={review._id}

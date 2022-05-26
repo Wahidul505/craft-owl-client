@@ -31,7 +31,6 @@ const ManageUsers = () => {
                     <tr>
                         <td></td>
                         <th>Email</th>
-                        <th>Name</th>
                         <th></th>
                     </tr>
                 </thead>

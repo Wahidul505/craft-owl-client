@@ -32,8 +32,8 @@ const MyProfile = () => {
 
     return (
         <div className='flex flex-col gap-8'>
-            <div class="card bg-primary text-primary-content">
-                <div class="card-body">
+            <div class="card bg-primary text-primary-content -mx-8 md:mx-0">
+                <div class="card-body -mx-4 md:mx-0">
                     <div class="avatar indicator">
                         {role === 'admin' && <span class="indicator-item badge badge-accent">Admin</span>}
                         <h2 class="card-title text-3xl mt-2 mr-8">{user?.displayName || ''}</h2>

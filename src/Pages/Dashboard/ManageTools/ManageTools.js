@@ -16,7 +16,6 @@ const ManageTools = () => {
             <table class="table w-full">
                 <thead>
                     <tr>
-                        <td></td>
                         <th>Name</th>
                         <th>Information</th>
                         <th>Price(pp)</th>
@@ -25,10 +24,9 @@ const ManageTools = () => {
                 </thead>
                 <tbody>
                     {
-                        allTools.map((tool, index) => <ToolRow
+                        allTools.map(tool => <ToolRow
                             key={tool._id}
                             tool={tool}
-                            index={index}
                             setDeletingTool={setDeletingTool}
                         />)
                     }

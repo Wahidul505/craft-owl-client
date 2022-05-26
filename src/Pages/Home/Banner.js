@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Banner = () => {
+    const navigate = useNavigate();
     return (
         <div
             className='bg-no-repeat bg-cover -mx-10'
@@ -12,7 +14,9 @@ const Banner = () => {
                     <div className='text-gray-800'>
                         <h1 class="text-5xl font-bold">Be a Craft Owl Buyer</h1>
                         <p class="py-6 text-xl">Welcome to Our Manufacturing website. We encourage you to visit our site and be a part of Company. Here we will supply you the products that you ordered with the fastest delivery service. Happy visiting!</p>
-                        <button class="btn btn-primary">Get Started</button>
+                        <button
+                            onClick={() => navigate('/dashboard')}
+                            class="btn btn-primary">Get Started</button>
                     </div>
                 </div>
             </div>

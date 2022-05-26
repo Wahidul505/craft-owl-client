@@ -1,10 +1,9 @@
 import React from 'react';
 
-const ToolRow = ({ tool, index, setDeletingTool }) => {
+const ToolRow = ({ tool, setDeletingTool }) => {
     const { name, image, description, availableQuantity, minimumOrderQuantity, price } = tool;
     return (
         <tr>
-            <td>{index + 1}</td>
             <td>
                 <div class="flex items-center space-x-3">
                     <div class="avatar">
@@ -23,7 +22,7 @@ const ToolRow = ({ tool, index, setDeletingTool }) => {
                 <br />
                 <p class="">Minimum Order Quantity: <br /> {minimumOrderQuantity}</p>
             </td>
-            <td>${price}</td>
+            <td className='text-xl'>${price}</td>
             <th>
                 <label
                     onClick={() => setDeletingTool(tool)}
