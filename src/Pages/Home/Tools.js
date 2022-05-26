@@ -4,7 +4,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 import ToolCard from './ToolCard';
 
 const Tools = () => {
-    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('http://localhost:5000/tool')
+    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('https://craft-owl.herokuapp.com/tool')
         .then(res => res.json()));
     if (isLoading) {
         return <LoadingSpinner />
@@ -13,6 +13,7 @@ const Tools = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             {
                 tools.map(tool => <ToolCard
+                    key={tool._id}
                     tool={tool}
                 />)
             }

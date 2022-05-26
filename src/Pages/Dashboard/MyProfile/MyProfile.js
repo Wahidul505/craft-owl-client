@@ -11,7 +11,7 @@ const MyProfile = () => {
     const [showEdit, setShowEdit] = useState(false);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const { data: userInfo, isLoading, refetch } = useQuery(['userInfo', user], () => fetch(`http://localhost:5000/user/${user?.email}`, {
+    const { data: userInfo, isLoading, refetch } = useQuery(['userInfo', user], () => fetch(`https://craft-owl.herokuapp.com/user/${user?.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -32,11 +32,11 @@ const MyProfile = () => {
 
     return (
         <div className='flex flex-col gap-8'>
-            <div class="card bg-primary text-primary-content -mx-8 md:mx-0">
-                <div class="card-body -mx-4 md:mx-0">
-                    <div class="avatar indicator">
-                        {role === 'admin' && <span class="indicator-item badge badge-accent">Admin</span>}
-                        <h2 class="card-title text-3xl mt-2 mr-8">{user?.displayName || ''}</h2>
+            <div className="card bg-primary text-primary-content -mx-8 md:mx-0">
+                <div className="card-body -mx-4 md:mx-0">
+                    <div className="avatar indicator">
+                        {role === 'admin' && <span className="indicator-item badge badge-accent">Admin</span>}
+                        <h2 className="card-title text-3xl mt-2 mr-8">{user?.displayName || ''}</h2>
                     </div>
                     <p>{user?.email || ''}</p>
                     {
@@ -48,11 +48,11 @@ const MyProfile = () => {
                             <p>LinkedIn Profile: <br /> <a className="text-white font-semibold" href={linkedin}>{linkedin || ''}</a></p>
                         </div>
                     }
-                    <div class="card-actions justify-end">
+                    <div className="card-actions justify-end">
                         {
                             user && <button
                                 onClick={() => setShowEdit(!showEdit)}
-                                class="btn">{showEdit ? "Close" : "Edit"}</button>
+                                className="btn">{showEdit ? "Close" : "Edit"}</button>
                         }
                     </div>
                 </div>

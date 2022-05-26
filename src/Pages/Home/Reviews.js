@@ -4,7 +4,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
-    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('http://localhost:5000/review')
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://craft-owl.herokuapp.com/review')
         .then(res => res.json()));
 
     if (isLoading) {
@@ -15,7 +15,7 @@ const Reviews = () => {
         <div>
             <div className='divider text-xl text-primary'>Scroll Down</div>
             <div className='divider mb-8 text-primary text-3xl'>To See Reviews</div>
-            <div class="h-[500px] carousel carousel-vertical rounded-box p-6 bg-base-200">
+            <div className="h-[500px] carousel carousel-vertical rounded-box p-6 bg-base-200">
                 {
                     reviews.map(review => <ReviewCard
                         key={review._id}

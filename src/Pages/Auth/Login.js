@@ -41,12 +41,12 @@ const Login = () => {
     }
     return (
         <div className='mt-48 w-5/6 md:w-1/2 lg:w-2/5 mx-auto card flex-shrink-0 shadow-2xl bg-base-100'>
-            <div class="card-body">
+            <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='text-center text-2xl text-primary mb-6'>Login to Your Account</h1>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Email</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Email</span>
                         </label>
                         <input
                             {...register("email", {
@@ -59,14 +59,14 @@ const Login = () => {
                                     message: "Invalid Email Address"
                                 }
                             })}
-                            type="email" placeholder="email" name='email' class="input input-bordered text-lg" />
+                            type="email" placeholder="email" name='email' className="input input-bordered text-lg" />
 
                         {errors.email?.type === 'required' && <small className='text-red-500'>{errors.email.message}</small>}
                         {errors.email?.type === 'pattern' && <small className='text-red-500'>{errors.email.message}</small>}
                     </div>
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Password</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Password</span>
                         </label>
                         <input
                             {...register("password", {
@@ -79,15 +79,15 @@ const Login = () => {
                                     message: 'Minimum eight characters, at least one letter, one number and no Special Character'
                                 }
                             })}
-                            type="password" placeholder="password" name='password' class="input input-bordered text-lg" />
+                            type="password" placeholder="password" name='password' className="input input-bordered text-lg" />
 
                         {errors.password?.type === 'required' && <small className='text-red-500'>{errors.password.message}</small>}
                         {errors.password?.type === 'pattern' && <small className='text-red-500'>{errors.password.message}</small>}
-                        <label class="label">
+                        <label className="label">
                             <p>New to Craft Owl? <Link to='/register' className='underline text-secondary'>Create an Account</Link></p>
                         </label>
                     </div>
-                    <div class="form-control mt-6">
+                    <div className="form-control mt-6">
                         <button type="submit" className='btn btn-primary'>Login</button>
                     </div>
                 </form>

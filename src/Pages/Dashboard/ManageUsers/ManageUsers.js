@@ -8,7 +8,7 @@ import UserRow from './UserRow';
 const ManageUsers = () => {
     const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState(null);
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://craft-owl.herokuapp.com/user', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -25,8 +25,8 @@ const ManageUsers = () => {
         return <LoadingSpinner />
     }
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
                 <thead>
                     <tr>
                         <td></td>

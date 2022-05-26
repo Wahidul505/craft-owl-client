@@ -22,7 +22,7 @@ const AddReview = () => {
             description,
             rating
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://craft-owl.herokuapp.com/review', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',
@@ -70,12 +70,12 @@ const AddReview = () => {
                 {errors.description?.type === 'minLength' && <small className='text-red-500'>{errors.description.message}</small>}
                 {errors.description?.type === 'maxLength' && <small className='text-red-500'>{errors.description.message}</small>}
                 <label htmlFor="ratings" className='text-xl mt-6'>Your Ratings</label>
-                <div class="rating rating-lg">
-                    <input type="radio" name="rating" value={1} class="mask mask-star-2 bg-secondary" />
-                    <input type="radio" name="rating" value={2} class="mask mask-star-2 bg-secondary" />
-                    <input type="radio" name="rating" value={3} class="mask mask-star-2 bg-secondary" />
-                    <input type="radio" name="rating" value={4} class="mask mask-star-2 bg-secondary" />
-                    <input type="radio" name="rating" value={5} class="mask mask-star-2 bg-secondary" />
+                <div className="rating rating-lg">
+                    <input type="radio" name="rating" value={1} className="mask mask-star-2 bg-secondary" />
+                    <input type="radio" name="rating" value={2} className="mask mask-star-2 bg-secondary" />
+                    <input type="radio" name="rating" value={3} className="mask mask-star-2 bg-secondary" />
+                    <input type="radio" name="rating" value={4} className="mask mask-star-2 bg-secondary" />
+                    <input type="radio" name="rating" value={5} className="mask mask-star-2 bg-secondary" />
                 </div>
                 <input type="submit" value="Add Review" className='btn btn-primary mt-8 w-40' />
             </form>

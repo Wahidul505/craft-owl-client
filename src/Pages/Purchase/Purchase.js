@@ -18,7 +18,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`http://localhost:5000/tool/${id}`)
+    const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`https://craft-owl.herokuapp.com/tool/${id}`)
         .then(res => res.json()));
 
     // setting initial value for quantity state 
@@ -56,7 +56,7 @@ const Purchase = () => {
             address: data.address,
             status: "unpaid"
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://craft-owl.herokuapp.com/order', {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -98,10 +98,10 @@ const Purchase = () => {
 
     return (
         <div className='mt-48 grid grid-cols-1 lg:grid-cols-3'>
-            <div class="card md:card-side bg-base-100 shadow-xl lg:col-span-2">
+            <div className="card md:card-side bg-base-100 shadow-xl lg:col-span-2">
                 <figure><img className='h-48 rounded-lg md:rounded-l-lg md:rounded-r-none md:h-full w-60' src={image} alt="Album" /></figure>
-                <div class="card-body">
-                    <h2 class="card-title text-3xl">{name}</h2>
+                <div className="card-body">
+                    <h2 className="card-title text-3xl">{name}</h2>
                     <p className='text-gray-600' title={description}>{description.length > 60 ? description.slice(0, 60) + '...' : description}</p>
                     <p className='text-2xl'>$ <span className='text-secondary font-semibold'>{price}</span></p>
                     <p>Minimum Order Quantity: <span className="text-secondary font-semibold">{minimumOrderQuantity}</span></p>
@@ -140,26 +140,26 @@ const Purchase = () => {
                 </div>
             </div>
             {/* form starts from here  */}
-            <div class="card-body">
+            <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* Name  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-lg">Name</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-lg">Name</span>
                         </label>
-                        <input type="text" value={user?.displayName || ''} disabled class="input input-bordered text-lg" />
+                        <input type="text" value={user?.displayName || ''} disabled className="input input-bordered text-lg" />
                     </div>
                     {/* Email  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-lg">Email</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-lg">Email</span>
                         </label>
-                        <input type="text" value={user?.email || ''} disabled class="input input-bordered text-lg" />
+                        <input type="text" value={user?.email || ''} disabled className="input input-bordered text-lg" />
                     </div>
                     {/* phone number  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-lg">Phone</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-lg">Phone</span>
                         </label>
                         <input
                             {...register("phone", {
@@ -168,14 +168,14 @@ const Purchase = () => {
                                     message: "Phone Number is Required"
                                 }
                             })}
-                            type="number" placeholder="phone" name='phone' class="input input-bordered text-lg" />
+                            type="text" placeholder="phone" name='phone' className="input input-bordered text-lg" />
 
                         {errors.phone?.type === 'required' && <small className='text-red-500'>{errors.phone.message}</small>}
                     </div>
                     {/* address  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-lg">Address</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-lg">Address</span>
                         </label>
                         <input
                             {...register("address", {
@@ -184,13 +184,13 @@ const Purchase = () => {
                                     message: "Address is Required"
                                 }
                             })}
-                            type="text" placeholder="address" name='address' class="input input-bordered text-lg" />
+                            type="text" placeholder="address" name='address' className="input input-bordered text-lg" />
 
                         {errors.address?.type === 'required' && <small className='text-red-500'>{errors.address.message}</small>}
                     </div>
                     {/* submit button  */}
-                    <div class="form-control mt-6">
-                        <button type='submit' class="btn btn-primary" disabled={displayError}>Complete Purchase</button>
+                    <div className="form-control mt-6">
+                        <button type='submit' className="btn btn-primary" disabled={displayError}>Complete Purchase</button>
                     </div>
                 </form>
             </div>

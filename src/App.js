@@ -5,6 +5,7 @@ import Register from "./Pages/Auth/Register";
 import RequireAdmin from "./Pages/Auth/RequireAdmin";
 import RequireAuth from "./Pages/Auth/RequireAuth";
 import RequireUser from "./Pages/Auth/RequireUser";
+import Blogs from "./Pages/Blogs/Blogs";
 import AddReview from "./Pages/Dashboard/AddReview";
 import AddTool from "./Pages/Dashboard/AddTool";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -14,6 +15,7 @@ import ManageUsers from "./Pages/Dashboard/ManageUsers/ManageUsers";
 import MyOrders from "./Pages/Dashboard/MyOrders/MyOrders";
 import MyProfile from "./Pages/Dashboard/MyProfile/MyProfile";
 import Landing from "./Pages/Home/Landing";
+import MyPortfolio from "./Pages/MyPortfolio/MyPortfolio";
 import Payment from "./Pages/Purchase/Payment";
 import Purchase from "./Pages/Purchase/Purchase";
 import Footer from "./Pages/Shared/Footer";
@@ -28,6 +30,8 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/my-portfolio" element={<MyPortfolio />} />
+        <Route path="/blogs" element={<Blogs/>} />
         {/* dashboard routes  */}
         <Route path="/dashboard" element={<Dashboard />}>
           <Route element={<RequireAuth />}>

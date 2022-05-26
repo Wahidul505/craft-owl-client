@@ -15,7 +15,7 @@ const CheckoutForm = ({ refetch, payingOrder }) => {
     const { _id, toolName, totalPrice, person, email, status, transactionId } = payingOrder;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://craft-owl.herokuapp.com/create-payment-intent', {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -70,7 +70,7 @@ const CheckoutForm = ({ refetch, payingOrder }) => {
         }
         else {
             setPaymentLoading(true);
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://craft-owl.herokuapp.com/order/${_id}`, {
                 headers: {
                     'content-type': 'application/json',
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`

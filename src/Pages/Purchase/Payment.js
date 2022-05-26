@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51L0f8BK96S4Dx2sqbNrb8CtiStAD5MvRtuait
 const Payment = () => {
     const [user] = useAuthState(auth);
     const { id } = useParams();
-    const { data: payingOrder, isLoading, refetch } = useQuery(['payingOrder', id], () => fetch(`http://localhost:5000/order?id=${id}&email=${user?.email}`, {
+    const { data: payingOrder, isLoading, refetch } = useQuery(['payingOrder', id], () => fetch(`https://craft-owl.herokuapp.com/order?id=${id}&email=${user?.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -31,9 +31,9 @@ const Payment = () => {
     };
     const { person, toolName, quantity, totalPrice, phone, address, transactionId } = payingOrder;
     return (
-        <div class="hero min-h-screen bg-base-200 mt-20 rounded ">
-            <div class="hero-content flex-col lg:flex-row gap-12">
-                <div class="text-center lg:text-left">
+        <div className="hero min-h-screen bg-base-200 mt-20 rounded ">
+            <div className="hero-content flex-col lg:flex-row gap-12">
+                <div className="text-center lg:text-left">
                     <div className='bg-base-300 mt-6 rounded p-4'>
                         <h3 className='font-semibold text-xl'>Order Information</h3>
                         <hr className='mb-3' />
@@ -45,8 +45,8 @@ const Payment = () => {
                         <p className='text-lg'>Total Price: <span className='text-primary'>{totalPrice}</span></p>
                     </div>
                 </div>
-                <div class="card w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body h-80">
+                <div className="card w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body h-80">
                         <Elements stripe={stripePromise}>
                             <CheckoutForm
                                 refetch={refetch}
@@ -54,7 +54,7 @@ const Payment = () => {
                             />
                         </Elements>
                         {!transactionId && <div>
-                            <h1 class="text-4xl font-bold">Please Pay <span className="text-primary">${totalPrice}</span></h1>
+                            <h1 className="text-4xl font-bold">Please Pay <span className="text-primary">${totalPrice}</span></h1>
                             <p className='text-xl'>For Your Order On <span className="text-accent font-semibold">{toolName}</span></p>
                         </div>}
                     </div>

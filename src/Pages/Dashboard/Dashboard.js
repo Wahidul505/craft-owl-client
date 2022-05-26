@@ -31,16 +31,16 @@ const Dashboard = () => {
     ]
     return (
         <div className='justify-between mt-24 lg:flex gap-8'>
-            <div class="dropdown dropdown-hover fixed top-16 left-0 lg:hidden z-20">
-                <label tabindex="0" class="btn"><FaChevronDown /></label>
-                <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 gap-2">
+            <div className="dropdown dropdown-hover fixed top-16 left-0 lg:hidden z-20">
+                <label tabIndex="0" className="btn"><FaChevronDown /></label>
+                <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 gap-2">
                     {/* <!-- Sidebar content here --> */}
                     {menuItems}
                 </ul>
             </div>
-            <aside class="hidden lg:block fixed -ml-10" aria-label="Sidebar">
-                <div class="py-4 px-3 bg-base-100 rounded">
-                    <ul class="menu p-4 overflow-y-auto w-64 bg-base-200 rounded-lg text-base-content gap-2">
+            <aside className="hidden lg:block fixed -ml-10" aria-label="Sidebar">
+                <div className="py-4 px-3 bg-base-100 rounded">
+                    <ul className="menu p-4 overflow-y-auto w-64 bg-base-200 rounded-lg text-base-content gap-2">
                         {/* <!-- Sidebar content here --> */}
                         {menuItems}
                     </ul>

@@ -6,7 +6,7 @@ import auth from '../../../firebase.init';
 const DeleteOrderModal = ({ deletingOrder, setDeletingOrder, refetch }) => {
     const { _id, person, email, phone, address, toolName, quantity, totalPrice, status } = deletingOrder;
     const handleDeleteOrder = id => {
-        fetch(`http://localhost:5000/admin/order/${id}`, {
+        fetch(`https://craft-owl.herokuapp.com/admin/order/${id}`, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
@@ -38,9 +38,9 @@ const DeleteOrderModal = ({ deletingOrder, setDeletingOrder, refetch }) => {
     }
     return (
         <div>
-            <input type="checkbox" id="delete-order-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
+            <input type="checkbox" id="delete-order-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
                     <div className='bg-base-300 mt-6 rounded py-2 p-0 md:px-4 md:py-4 -mx-4 md:mx-0'>
                         <h3 className='font-semibold text-2xl'>Do you Want to Delete the order?</h3>
                         <hr className='mb-3' />
@@ -53,11 +53,11 @@ const DeleteOrderModal = ({ deletingOrder, setDeletingOrder, refetch }) => {
                         <p className='text-lg'>Total Price: <span className='text-primary'>{totalPrice}</span></p>
                         <p className='text-lg'>Status: <span className='text-primary font-semibold text-3xl'>{status}</span></p>
                     </div>
-                    <div class="modal-action">
+                    <div className="modal-action">
                         <button
                             onClick={() => handleDeleteOrder(_id)}
                             className='btn btn-sm btn-error'>Delete</button>
-                        <label for="delete-order-modal" class="btn btn-sm">Cancel</label>
+                        <label for="delete-order-modal" className="btn btn-sm">Cancel</label>
                     </div>
                 </div>
             </div>

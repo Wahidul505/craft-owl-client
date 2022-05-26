@@ -8,7 +8,7 @@ import Order from './Order';
 
 const ManageOrders = () => {
     const [deletingOrder, setDeletingOrder] = useState(null);
-    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('http://localhost:5000/admin/order', {
+    const { data: orders, isLoading, refetch } = useQuery('orders', () => fetch('https://craft-owl.herokuapp.com/admin/order', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

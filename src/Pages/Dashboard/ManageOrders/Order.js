@@ -5,7 +5,7 @@ import auth from '../../../firebase.init';
 const Order = ({ order, refetch, setDeletingOrder }) => {
     const { _id, person, email, phone, address, toolName, quantity, totalPrice, status } = order;
     const handleShipOrder = (id) => {
-        fetch(`http://localhost:5000/admin/order/${id}`, {
+        fetch(`https://craft-owl.herokuapp.com/admin/order/${id}`, {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -25,9 +25,9 @@ const Order = ({ order, refetch, setDeletingOrder }) => {
         });
     }
     return (
-        <div class="card w-full lg:card-side bg-base-100 shadow-xl">
+        <div className="card w-full lg:card-side bg-base-100 shadow-xl">
 
-            <div class="card-body">
+            <div className="card-body">
                 <div className='bg-base-300 mt-6 rounded  py-2 p-0 md:px-4 md:py-4 -mx-8 md:mx-0'>
                     <h3 className='font-semibold text-xl'>Order Information</h3>
                     <hr className='mb-3' />
@@ -40,13 +40,13 @@ const Order = ({ order, refetch, setDeletingOrder }) => {
                     <p className='text-lg'>Total Price: <span className='text-primary'>{totalPrice}</span></p>
                     <p className='text-lg'>Status: <span className='text-primary font-semibold text-3xl'>{status}</span></p>
                 </div>
-                <div class="card-actions justify-end">
+                <div className="card-actions justify-end">
                     {status === 'pending' && <button
                         onClick={() => handleShipOrder(_id)}
-                        class="btn btn-primary btn-sm">Ship Order</button>}
+                        className="btn btn-primary btn-sm">Ship Order</button>}
                     {status === 'unpaid' && <label
                         onClick={() => setDeletingOrder(order)}
-                        for="delete-order-modal" class="btn btn-error btn-sm">Delete Order</label>}
+                        for="delete-order-modal" className="btn btn-error btn-sm">Delete Order</label>}
                 </div>
             </div>
         </div>

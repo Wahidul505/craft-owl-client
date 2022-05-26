@@ -11,7 +11,7 @@ const CancelingOrderModal = ({ cancelingOrder, setCancelingOrder, refetch }) => 
     const navigate = useNavigate();
     const email = user?.email;
     const handleCancelOrder = () => {
-        fetch(`http://localhost:5000/order?id=${_id}&email=${email}`, {
+        fetch(`https://craft-owl.herokuapp.com/order?id=${_id}&email=${email}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,18 +36,18 @@ const CancelingOrderModal = ({ cancelingOrder, setCancelingOrder, refetch }) => 
 
     return (
         <div>
-            <input type="checkbox" id="canceling-order-modal" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg">Are You sure to Cancel your Order for</h3>
-                    <p class="py-4 text-lg font-semibold">{toolName} ?</p>
+            <input type="checkbox" id="canceling-order-modal" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Are You sure to Cancel your Order for</h3>
+                    <p className="py-4 text-lg font-semibold">{toolName} ?</p>
                     <p>Total Quantity Of: {quantity}</p>
                     <p>Total Price of: ${totalPrice}</p>
-                    <div class="modal-action">
+                    <div className="modal-action">
                         <label
                             onClick={handleCancelOrder}
-                            for="canceling-order-modal" class="btn btn-error">Yes, Cancel Order</label>
-                        <label for="canceling-order-modal" class="btn btn-accent">No</label>
+                            for="canceling-order-modal" className="btn btn-error">Yes, Cancel Order</label>
+                        <label for="canceling-order-modal" className="btn btn-accent">No</label>
                     </div>
                 </div>
             </div>

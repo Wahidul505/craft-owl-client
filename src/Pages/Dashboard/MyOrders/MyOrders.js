@@ -13,7 +13,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     const navigate = useNavigate();
-    const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', email], () => fetch(`http://localhost:5000/order/${email}`, {
+    const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', email], () => fetch(`https://craft-owl.herokuapp.com/order/${email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
@@ -32,8 +32,8 @@ const MyOrders = () => {
     };
 
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
                 <thead>
                     <tr>
                         <td></td>

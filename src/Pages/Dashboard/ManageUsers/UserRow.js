@@ -11,7 +11,7 @@ const UserRow = ({ user, index, refetch, setUserEmail }) => {
                 {role === 'admin' ? <p className='bg-secondary rounded-3xl w-28 py-1 text-center'>Admin</p>
                     : <label
                         onClick={() => setUserEmail(email)}
-                        for="make-admin-modal" class="btn btn-sm btn-accent">Make Admin</label>}
+                        for="make-admin-modal" className="btn btn-sm btn-accent">Make Admin</label>}
             </td>
         </tr>
     );

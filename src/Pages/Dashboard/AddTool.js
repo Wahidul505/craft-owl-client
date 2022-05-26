@@ -26,7 +26,7 @@ const AddTool = () => {
                     minimumOrderQuantity: parseInt(data.minimumOrderQuantity),
                     price: parseFloat(data.price),
                 }
-                fetch('http://localhost:5000/tool', {
+                fetch('https://craft-owl.herokuapp.com/tool', {
                     headers: {
                         'content-type': 'application/json',
                         'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -50,13 +50,13 @@ const AddTool = () => {
     };
     return (
         <div className='card flex-shrink-0 shadow-2xl bg-base-100'>
-            <div class="card-body">
+            <div className="card-body">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='text-center text-2xl text-primary mb-6'>Add A New Tool</h1>
                     {/* tool name field  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Tool Name</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Tool Name</span>
                         </label>
                         <input
                             {...register("name", {
@@ -65,14 +65,14 @@ const AddTool = () => {
                                     message: "Tool Name is Required"
                                 }
                             })}
-                            type="text" placeholder="Tool Name" name='name' class="input input-bordered text-lg" autoComplete='off' />
+                            type="text" placeholder="Tool Name" name='name' className="input input-bordered text-lg" autoComplete='off' />
 
                         {errors.name?.type === 'required' && <small className='text-red-500'>{errors.name.message}</small>}
                     </div>
                     {/* description field  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Description</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Description</span>
                         </label>
                         <input
                             {...register("description", {
@@ -81,14 +81,14 @@ const AddTool = () => {
                                     message: "Description is Required"
                                 }
                             })}
-                            type="text" placeholder="Tool Description" name='description' class="input input-bordered text-lg" />
+                            type="text" placeholder="Tool Description" name='description' className="input input-bordered text-lg" />
 
                         {errors.description?.type === 'required' && <small className='text-red-500'>{errors.description.message}</small>}
                     </div>
                     {/* Available Quantity field  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Available Quantity</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Available Quantity</span>
                         </label>
                         <input
                             {...register("availableQuantity", {
@@ -101,15 +101,15 @@ const AddTool = () => {
                                     message: 'Please Give a Valid Number'
                                 }
                             })}
-                            type="text" placeholder="Available Quantity" name='availableQuantity' class="input input-bordered text-lg" />
+                            type="text" placeholder="Available Quantity" name='availableQuantity' className="input input-bordered text-lg" />
 
                         {errors.availableQuantity?.type === 'required' && <small className='text-red-500'>{errors.availableQuantity.message}</small>}
                         {errors.availableQuantity?.type === 'pattern' && <small className='text-red-500'>{errors.availableQuantity.message}</small>}
                     </div>
                     {/* new form control  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Minimum Order Quantity</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Minimum Order Quantity</span>
                         </label>
                         <input
                             {...register("minimumOrderQuantity", {
@@ -122,15 +122,15 @@ const AddTool = () => {
                                     message: 'Please Give a Valid Number'
                                 }
                             })}
-                            type="text" placeholder="Minimum Order Quantity" name='minimumOrderQuantity' class="input input-bordered text-lg" />
+                            type="text" placeholder="Minimum Order Quantity" name='minimumOrderQuantity' className="input input-bordered text-lg" />
 
                         {errors.minimumOrderQuantity?.type === 'required' && <small className='text-red-500'>{errors.minimumOrderQuantity.message}</small>}
                         {errors.minimumOrderQuantity?.type === 'pattern' && <small className='text-red-500'>{errors.minimumOrderQuantity.message}</small>}
                     </div>
                     {/* new form control  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Price</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Price</span>
                         </label>
                         <input
                             {...register("price", {
@@ -143,15 +143,15 @@ const AddTool = () => {
                                     message: 'Please Give a Valid Number'
                                 }
                             })}
-                            type="text" placeholder="Price in Dollar" name='price' class="input input-bordered text-lg" />
+                            type="text" placeholder="Price in Dollar" name='price' className="input input-bordered text-lg" />
 
                         {errors.price?.type === 'required' && <small className='text-red-500'>{errors.price.message}</small>}
                         {errors.price?.type === 'pattern' && <small className='text-red-500'>{errors.price.message}</small>}
                     </div>
                     {/* Image field  */}
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text text-xl">Tool Image</span>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text text-xl">Tool Image</span>
                         </label>
                         <input
                             {...register("image", {
@@ -160,11 +160,11 @@ const AddTool = () => {
                                     message: 'Image is required'
                                 }
                             })}
-                            type="file" name='image' class="input input-bordered text-lg p-1" />
+                            type="file" name='image' className="input input-bordered text-lg p-1" />
 
                         {errors.image?.type === 'required' && <small className='text-red-500'>{errors.image.message}</small>}
                     </div>
-                    <div class="form-control mt-6">
+                    <div className="form-control mt-6">
                         <button type="submit" className='btn btn-primary'>Add Tool</button>
                     </div>
                 </form>
