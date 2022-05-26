@@ -37,7 +37,7 @@ const NavBar = () => {
         <div className="navbar bg-base-100 fixed top-0 right-0 left-0 z-10">
             <div className="navbar-start">
                 <Link to='/' className='btn btn-ghost normal-case text-xl'>
-                    <img className='w-36' src="https://i.ibb.co/XsPqhK3/logo-2.png" alt="" />
+                    <h3 className='text-3xl font-semibold'>Craft Owl</h3>
                 </Link>
             </div>
             <div className="navbar-end">
