@@ -10,7 +10,7 @@ const CheapestTool = () => {
     return (
         <div>
             <h1 className='text-center text-primary text-4xl mb-6'>Cheapest Product On Store</h1>
-            <div className="hero min-h-screen"
+            <div className="hero h-72 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${cheapTool?.image})` }}
             >
                 <div className="hero-overlay bg-opacity-40"></div>

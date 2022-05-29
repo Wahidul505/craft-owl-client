@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { Link } from 'react-router-dom';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 import ToolCard from './ToolCard';
 
@@ -10,13 +11,18 @@ const Tools = () => {
         return <LoadingSpinner />
     }
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-            {
-                tools.map(tool => <ToolCard
-                    key={tool._id}
-                    tool={tool}
-                />)
-            }
+        <div>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
+                {
+                    tools.map(tool => <ToolCard
+                        key={tool._id}
+                        tool={tool}
+                    />)
+                }
+            </div>
+            <p className='text-2xl text-primary underline text-right'>
+                <Link to='/tools'>See All</Link>
+            </p>
         </div>
     );
 };

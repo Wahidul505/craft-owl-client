@@ -33,7 +33,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
         <Route path="/tools" element={<AllTools />} />
-        <Route path="/blogs" element={<Blogs/>} />
+        <Route path="/blogs" element={<Blogs />} />
         {/* dashboard routes  */}
         <Route path="/dashboard" element={<Dashboard />}>
           <Route element={<RequireAuth />}>

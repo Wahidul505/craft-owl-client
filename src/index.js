@@ -7,6 +7,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from 'react-query';
+import ScrollToTop from './Pages/ScrollToTop';
 
 const queryClient = new QueryClient()
 
@@ -14,6 +15,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <QueryClientProvider client={queryClient}>
         <App />
       </QueryClientProvider>

@@ -127,7 +127,7 @@ const CheckoutForm = ({ refetch, payingOrder }) => {
                 </button>
                 {
                     status === 'pending' && <div>
-                        <p className='text-xl text-gray-700'>You Complete Your Payment with <span className='text-secondary'>${totalPrice}</span> for <span className='text-secondary'>${toolName}</span></p>
+                        <p className='text-xl text-gray-700'>You Complete Your Payment with <span className='text-secondary'>${totalPrice}</span> for <span className='text-secondary'>{toolName}</span></p>
                         <p className='text-xl text-gray-700'>Your Transaction Id: <span className='text-secondary'>{transactionId}</span></p>
                         <Link to='/dashboard/my-orders' className='underline text-blue-600 absolute bottom-5'>Back to My Orders</Link>
                     </div>

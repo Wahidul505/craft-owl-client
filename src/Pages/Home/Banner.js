@@ -12,11 +12,22 @@ const Banner = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src="https://i.ibb.co/XCx5GdD/laura-adai-s6-U7-Gq93-UU8-unsplash-1-removebg-preview.png" alt='' />
                     <div className='text-gray-800'>
-                        <h1 className="text-5xl font-bold">Be a Craft Owl Buyer</h1>
-                        <p className="py-6 text-xl">Welcome to Our Manufacturing website. We encourage you to visit our site and be a part of Company. Here we will supply you the products that you ordered with the fastest delivery service. Happy visiting!</p>
+                        <h1
+                            data-aos="flip-down"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="500"
+                            className="text-5xl font-bold">Be a Craft Owl Buyer</h1>
+                        <p
+                            data-aos="flip-down"
+                            data-aos-offset="300"
+                            data-aos-easing="ease-in-sine"
+                            data-aos-duration="1000"
+                            className="py-6 text-xl">Welcome to Our Manufacturing website. We encourage you to visit our site and be a part of our Company. We supply Art, Paint and Craft Tools.</p>
                         <button
-                            onClick={() => navigate('/dashboard')}
-                            className="btn btn-primary">Get Started</button>
+                            onClick={() => navigate('/tools')}
+                            className="btn btn-primary">Get Started
+                        </button>
                     </div>
                 </div>
             </div>

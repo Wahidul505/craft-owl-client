@@ -97,8 +97,8 @@ const Purchase = () => {
 
 
     return (
-        <div className='mt-48 grid grid-cols-1 lg:grid-cols-3'>
-            <div className="card md:card-side bg-base-100 shadow-xl lg:col-span-2">
+        <div className='mt-48 grid grid-cols-1 lg:grid-cols-5'>
+            <div className="card md:card-side bg-base-100 shadow-xl lg:col-span-3 p-4">
                 <figure><img className='h-48 rounded-lg md:rounded-l-lg md:rounded-r-none md:h-full w-60' src={image} alt="Album" /></figure>
                 <div className="card-body">
                     <h2 className="card-title text-3xl">{name}</h2>
@@ -140,7 +140,7 @@ const Purchase = () => {
                 </div>
             </div>
             {/* form starts from here  */}
-            <div className="card-body">
+            <div className="card-body col-span-2">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* Name  */}
                     <div className="form-control">
