@@ -1,5 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
+import AllTools from "./Pages/AllTools/AllTools";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import RequireAdmin from "./Pages/Auth/RequireAdmin";
@@ -31,6 +32,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/my-portfolio" element={<MyPortfolio />} />
+        <Route path="/tools" element={<AllTools />} />
         <Route path="/blogs" element={<Blogs/>} />
         {/* dashboard routes  */}
         <Route path="/dashboard" element={<Dashboard />}>
