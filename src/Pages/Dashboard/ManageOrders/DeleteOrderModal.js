@@ -6,7 +6,7 @@ import auth from '../../../firebase.init';
 const DeleteOrderModal = ({ deletingOrder, setDeletingOrder, refetch }) => {
     const { _id, person, email, phone, address, toolName, quantity, totalPrice, status } = deletingOrder;
     const handleDeleteOrder = id => {
-        fetch(`https://craft-owl.herokuapp.com/admin/order/${id}`, {
+        fetch(`https://craft-owl.onrender.com/admin/order/${id}`, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },

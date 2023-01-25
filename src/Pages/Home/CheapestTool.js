@@ -5,7 +5,7 @@ const CheapestTool = () => {
     const [cheapTool, setCheapTool] = useState({});
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://craft-owl.herokuapp.com/cheapest-tool').then(res => res.json()).then(data => setCheapTool(data[0]));
+        fetch('https://craft-owl.onrender.com/cheapest-tool').then(res => res.json()).then(data => setCheapTool(data[0]));
     }, []);
     return (
         <div>

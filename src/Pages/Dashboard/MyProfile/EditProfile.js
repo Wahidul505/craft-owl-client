@@ -14,7 +14,7 @@ const EditProfile = ({ user, userInfo, refetch, setShowEdit }) => {
         const phone = e.target.phone.value;
         const linkedin = e.target.linkedin.value;
         const userUpdatedInfo = { name, education, location, phone, linkedin, updateStatus: true }
-        fetch(`https://craft-owl.herokuapp.com/update-user/${user?.email}`, {
+        fetch(`https://craft-owl.onrender.com/update-user/${user?.email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

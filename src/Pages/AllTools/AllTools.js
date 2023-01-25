@@ -4,7 +4,7 @@ import ToolCard from '../Home/ToolCard';
 const AllTools = () => {
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        fetch('https://craft-owl.herokuapp.com/all-tools').then(res => res.json()).then(data => setTools(data));
+        fetch('https://craft-owl.onrender.com/all-tools').then(res => res.json()).then(data => setTools(data));
     }, [])
 
     return (

@@ -5,7 +5,7 @@ import auth from '../../../firebase.init';
 const Order = ({ order, refetch, setDeletingOrder }) => {
     const { _id, person, email, phone, address, toolName, quantity, totalPrice, status } = order;
     const handleShipOrder = (id) => {
-        fetch(`https://craft-owl.herokuapp.com/admin/order/${id}`, {
+        fetch(`https://craft-owl.onrender.com/admin/order/${id}`, {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

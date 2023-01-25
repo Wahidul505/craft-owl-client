@@ -22,7 +22,7 @@ const AddReview = () => {
             description,
             rating
         }
-        fetch('https://craft-owl.herokuapp.com/review', {
+        fetch('https://craft-owl.onrender.com/review', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json',

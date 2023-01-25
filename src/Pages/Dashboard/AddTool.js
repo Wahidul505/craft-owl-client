@@ -12,6 +12,7 @@ const AddTool = () => {
         const image = data.image[0];
         const formData = new FormData();
         formData.append('image', image);
+        console.log(formData);
         const url = `https://api.imgbb.com/1/upload?key=${clientApiKey}`;
         fetch(url, {
             method: 'POST',
@@ -26,7 +27,7 @@ const AddTool = () => {
                     minimumOrderQuantity: parseInt(data.minimumOrderQuantity),
                     price: parseFloat(data.price),
                 }
-                fetch('https://craft-owl.herokuapp.com/tool', {
+                fetch('https://craft-owl.onrender.com/tool', {
                     headers: {
                         'content-type': 'application/json',
                         'authorization': `Bearer ${localStorage.getItem('accessToken')}`

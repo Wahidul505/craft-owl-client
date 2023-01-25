@@ -18,7 +18,7 @@ const Purchase = () => {
     const { id } = useParams();
     const [user] = useAuthState(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`https://craft-owl.herokuapp.com/tool/${id}`)
+    const { data: tool, isLoading } = useQuery('purchasingTool', () => fetch(`https://craft-owl.onrender.com/tool/${id}`)
         .then(res => res.json()));
 
     // setting initial value for quantity state 
@@ -56,7 +56,7 @@ const Purchase = () => {
             address: data.address,
             status: "unpaid"
         }
-        fetch('https://craft-owl.herokuapp.com/order', {
+        fetch('https://craft-owl.onrender.com/order', {
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

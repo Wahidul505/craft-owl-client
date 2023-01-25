@@ -5,7 +5,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 import ToolCard from './ToolCard';
 
 const Tools = () => {
-    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('https://craft-owl.herokuapp.com/tool')
+    const { data: tools, isLoading } = useQuery('display-tools', () => fetch('https://craft-owl.onrender.com/tool')
         .then(res => res.json()));
     if (isLoading) {
         return <LoadingSpinner />

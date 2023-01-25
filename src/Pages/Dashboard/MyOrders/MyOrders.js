@@ -13,7 +13,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     const navigate = useNavigate();
-    const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', email], () => fetch(`https://craft-owl.herokuapp.com/order/${email}`, {
+    const { data: myOrders, isLoading, refetch } = useQuery(['myOrders', email], () => fetch(`https://craft-owl.onrender.com/order/${email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

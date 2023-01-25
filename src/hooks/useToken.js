@@ -5,7 +5,7 @@ const useToken = user => {
     useEffect(() => {
         const email = user?.user?.email;
         if (email) {
-            fetch(`https://craft-owl.herokuapp.com/user/${email}`, {
+            fetch(`https://craft-owl.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

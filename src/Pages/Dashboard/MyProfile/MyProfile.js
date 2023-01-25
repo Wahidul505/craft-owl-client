@@ -11,7 +11,7 @@ const MyProfile = () => {
     const [showEdit, setShowEdit] = useState(false);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
-    const { data: userInfo, isLoading, refetch } = useQuery(['userInfo', user], () => fetch(`https://craft-owl.herokuapp.com/user/${user?.email}`, {
+    const { data: userInfo, isLoading, refetch } = useQuery(['userInfo', user], () => fetch(`https://craft-owl.onrender.com/user/${user?.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

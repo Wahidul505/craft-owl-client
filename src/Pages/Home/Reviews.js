@@ -4,7 +4,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 import ReviewCard from './ReviewCard';
 
 const Reviews = () => {
-    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://craft-owl.herokuapp.com/review')
+    const { data: reviews, isLoading } = useQuery('reviews', () => fetch('https://craft-owl.onrender.com/review')
         .then(res => res.json()));
 
     if (isLoading) {

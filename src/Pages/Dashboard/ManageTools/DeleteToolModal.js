@@ -7,7 +7,7 @@ const DeleteToolModal = ({ deletingTool, setDeletingTool, refetch }) => {
     const { _id, name, image, price, availableQuantity } = deletingTool;
     // delete tool handler 
     const handleDeleteTool = (id) => {
-        fetch(`https://craft-owl.herokuapp.com/tool/${id}`, {
+        fetch(`https://craft-owl.onrender.com/tool/${id}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

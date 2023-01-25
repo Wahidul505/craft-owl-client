@@ -8,7 +8,7 @@ import UserRow from './UserRow';
 const ManageUsers = () => {
     const navigate = useNavigate();
     const [userEmail, setUserEmail] = useState(null);
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://craft-owl.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://craft-owl.onrender.com/user', {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

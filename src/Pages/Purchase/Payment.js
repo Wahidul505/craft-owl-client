@@ -14,7 +14,7 @@ const stripePromise = loadStripe('pk_test_51L0f8BK96S4Dx2sqbNrb8CtiStAD5MvRtuait
 const Payment = () => {
     const [user] = useAuthState(auth);
     const { id } = useParams();
-    const { data: payingOrder, isLoading, refetch } = useQuery(['payingOrder', id], () => fetch(`https://craft-owl.herokuapp.com/order?id=${id}&email=${user?.email}`, {
+    const { data: payingOrder, isLoading, refetch } = useQuery(['payingOrder', id], () => fetch(`https://craft-owl.onrender.com/order?id=${id}&email=${user?.email}`, {
         headers: {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }

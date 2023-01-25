@@ -7,7 +7,7 @@ const useAdmin = user => {
     const [adminLoading, setAdminLoading] = useState(true);
     useEffect(() => {
         const email = user?.email;
-        fetch(`https://craft-owl.herokuapp.com/admin/user/${email}`, {
+        fetch(`https://craft-owl.onrender.com/admin/user/${email}`, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             }

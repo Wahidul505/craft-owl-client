@@ -11,7 +11,7 @@ const CancelingOrderModal = ({ cancelingOrder, setCancelingOrder, refetch }) => 
     const navigate = useNavigate();
     const email = user?.email;
     const handleCancelOrder = () => {
-        fetch(`https://craft-owl.herokuapp.com/order?id=${_id}&email=${email}`, {
+        fetch(`https://craft-owl.onrender.com/order?id=${_id}&email=${email}`, {
             method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`

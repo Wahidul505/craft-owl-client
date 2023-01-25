@@ -4,7 +4,7 @@ import auth from '../../../firebase.init';
 
 const MakeAdminModal = ({ userEmail, refetch }) => {
     const handleMakeAdmin = email => {
-        fetch(`https://craft-owl.herokuapp.com/admin/user/${email}`, {
+        fetch(`https://craft-owl.onrender.com/admin/user/${email}`, {
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },

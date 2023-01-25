@@ -6,7 +6,7 @@ import ToolRow from './ToolRow';
 
 const ManageTools = () => {
     const [deletingTool, setDeletingTool] = useState(null);
-    const { data: allTools, isLoading, refetch } = useQuery('all-tools', () => fetch('https://craft-owl.herokuapp.com/all-tools')
+    const { data: allTools, isLoading, refetch } = useQuery('all-tools', () => fetch('https://craft-owl.onrender.com/all-tools')
         .then(res => res.json()));
     if (isLoading) {
         return <LoadingSpinner />
